@@ -7,19 +7,17 @@ const getInput = readline.createInterface({
 });
 
 const getAngle = (hour, minute) => {
-  return 360 - (hour * 30 + minute * 0.5 - minute * 6);
+  return 360 - Math.abs(hour * 30 + minute * 0.5 - minute * 6);
 };
 
 getInput.question(`Enter the hour  `, (hour) => {
   getInput.question(`Enter the minute  `, (minute) => {
+    assert(
+      hour <= 12 && minute <= 60,
+      "Error!! The hour should be less than 12 and minute should be less than 60"
+    );
     console.log(
-      `The angle between ${hour} and ${minute} is ${getAngle(
-        hour,
-        minute
-      )} ${assert(
-        hour <= 12 && minute <= 60,
-        "Error!! The hour should be less than 12 and minute should be less than 60"
-      )}`
+      `The angle between ${hour} and ${minute} is ${getAngle(hour, minute)}`
     );
     getInput.close();
   });
