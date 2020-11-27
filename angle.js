@@ -7,7 +7,7 @@ const getInput = readline.createInterface({
 });
 
 const getAngle = (hour, minute) => {
-  return 360 - Math.abs(hour * 30 + minute * 0.5 - minute * 6);
+  return 360 - Math.abs(hour * 30 + minute * -5.5);
 };
 
 getInput.question(`Enter the hour  `, (hour) => {
